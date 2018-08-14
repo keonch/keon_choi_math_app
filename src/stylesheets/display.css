@@ -1,0 +1,32 @@
+.display {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.derivative {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.derivative span:last-of-type {
+  border-top: 1px solid black;
+}
+
+.area-integral {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.integral {
+  font-size: 30px;
+}
+
+.Arcsin, .Arccos, .Arctan {
+  align-items: baseline;
+}
+
+.Area, .Derive, .Integrate {
+  align-items: center;
+}

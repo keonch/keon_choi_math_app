@@ -1,2 +1,21 @@
 .app {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.operation-dashboard {
+  display: grid;
+  grid-template: repeat(4, auto) / repeat(4, auto);
+  grid-auto-flow: row dense;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.api-dashboard {
+  display: grid;
+  grid-template: repeat(5, auto) / repeat(3, auto);
+  grid-auto-flow: row dense;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
 }
