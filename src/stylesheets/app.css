@@ -52,3 +52,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.result {
+  margin-bottom: 20px;
+}
+
+.preview {
+  font-size: 12px;
+}

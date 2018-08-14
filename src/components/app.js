@@ -25,6 +25,7 @@ export default class App extends Component {
       suffix: '',
 
       loading: false,
+      apiUrl: '',
       result: ''
     };
 
@@ -211,7 +212,10 @@ export default class App extends Component {
     }
 
     const url = `https://newton.now.sh/${this.state.api}/${apiParams}${apiEndpointExpression}`;
-    this.setState({ loading: true });
+    this.setState({
+      loading: true,
+      apiUrl: url
+    });
     APIUtils.fetchNewtonAPI(url).then(
       (payload) => (this.handleResponse(payload)),
       (error) => (this.handleError(error))
@@ -241,6 +245,7 @@ export default class App extends Component {
           </div>
           <button onClick={this.deleteExpression}>Del</button>
         </div>
+
         <div className='dashboards'>
           <OperationDashboard
             toggleExponent={this.toggleExponent}
@@ -255,13 +260,19 @@ export default class App extends Component {
             update={this.updateApi}
             updateApiParams={this.updateApiParams}/>
         </div>
+
         <button onClick={this.handleSubmit}>Compute</button>
+
         <div className='result display'>
           {
             this.state.loading ?
             <div className='loading'>π</div> :
             this.state.result
           }
+        </div>
+
+        <div className='preview'>
+          API Endpoint Preview: {this.state.apiUrl}
         </div>
       </div>
     );
