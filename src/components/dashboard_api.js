@@ -59,6 +59,15 @@ const APIDashboard = (props) => {
         onClick={props.update}
         value='tangent'>
         Find Tangent
+        {
+          props.selectedApi === 'tangent' &&
+          <div className='param-input'>
+            <label>x = </label>
+            <input
+              onChange={props.updateApiParams('xValue')}
+              value={props.xValue}/>
+          </div>
+        }
       </button>
 
       <button
@@ -78,6 +87,19 @@ const APIDashboard = (props) => {
         onClick={props.update}
         value='area'>
         Area Under Curve
+        {
+          props.selectedApi === 'area' &&
+          <div className='param-input'>
+            <label>start = </label>
+            <input
+              onChange={props.updateApiParams('start')}
+              value={props.start}/>
+            <label>end = </label>
+            <input
+              onChange={props.updateApiParams('end')}
+              value={props.end}/>
+          </div>
+        }
       </button>
 
       <button
@@ -97,6 +119,15 @@ const APIDashboard = (props) => {
         onClick={props.update}
         value='log'>
         Log
+        {
+          props.selectedApi === 'log' &&
+          <div className='param-input'>
+            <label>base = </label>
+            <input
+              onChange={props.updateApiParams('base')}
+              value={props.base}/>
+          </div>
+        }
       </button>
     </div>
   );

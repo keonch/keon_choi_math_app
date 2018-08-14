@@ -29,6 +29,7 @@ export default class App extends Component {
     };
 
     this.updateApi = this.updateApi.bind(this);
+    this.updateApiParams = this.updateApiParams.bind(this);
     this.toggleExponent = this.toggleExponent.bind(this);
     this.handleExpressionInput = this.handleExpressionInput.bind(this);
     this.deleteExpression = this.deleteExpression.bind(this);
@@ -85,6 +86,33 @@ export default class App extends Component {
         suf = null;
     }
     this.setState({ api, prefix: pre, suffix: suf });
+  }
+
+  updateApiParams(field) {
+    return (e) => {
+      let pre, suf;
+      switch (this.state.api) {
+        case 'tangent':
+          [pre, suf] = AffixUtils.tangent(e.currentTarget.value);
+          break;
+        case 'area':
+          if (field === 'start') {
+            [pre, suf] = AffixUtils.area(e.currentTarget.value, this.state.end);
+          } else {
+            [pre, suf] = AffixUtils.area(this.state.start, e.currentTarget.value);
+          }
+          break;
+        case 'log':
+          [pre, suf] = AffixUtils.log(e.currentTarget.value);
+          break;
+        default:
+      }
+      this.setState({
+        [field]: e.currentTarget.value,
+        prefix: pre,
+        suffix: suf
+      });
+    };
   }
 
   toggleExponent() {
@@ -220,13 +248,18 @@ export default class App extends Component {
             update={this.handleExpressionInput}/>
           <APIDashboard
             selectedApi={this.state.api}
-            update={this.updateApi}/>
+            xValue={this.state.xValue}
+            start={this.state.start}
+            end={this.state.end}
+            base={this.state.base}
+            update={this.updateApi}
+            updateApiParams={this.updateApiParams}/>
         </div>
         <button onClick={this.handleSubmit}>Compute</button>
         <div className='result display'>
           {
             this.state.loading ?
-            <img alt='loading' src='../images/loading.png' className='loading'/> :
+            <div className='loading'>π</div> :
             this.state.result
           }
         </div>

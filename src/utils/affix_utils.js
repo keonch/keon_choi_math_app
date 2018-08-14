@@ -65,16 +65,16 @@ export const abs = () => {
 
 export const tangent = (xValue) => {
   const prefix = <span>Tangent of</span>;
-  const suffix = <span>where x={xValue}</span>;
+  const suffix = <span>where x = {xValue}</span>;
   return [prefix, suffix];
 };
 
 export const area = (start, end) => {
   const prefix = (
     <span className='area-integral'>
-      <span>{start}</span>
-      <span className='integral'>∫</span>
       <span>{end}</span>
+      <span className='integral'>∫</span>
+      <span>{start}</span>
     </span>
   );
   const suffix = <span>dx</span>;
