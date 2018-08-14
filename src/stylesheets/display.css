@@ -1,6 +1,22 @@
 .display {
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  border: 4px solid lightgrey;
+  border-radius: 8px;
+  width: 400px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.display > span {
+  color: #545454;
+}
+
+.expression {
+  margin: 0 5px 0 5px;
 }
 
 .derivative {
@@ -23,10 +39,10 @@
   font-size: 30px;
 }
 
-.Arcsin, .Arccos, .Arctan {
-  align-items: baseline;
+.arcsin, .arccos, .arctan {
+  line-height: 4;
 }
 
-.Area, .Derive, .Integrate {
+.area, .derive, .integrate {
   align-items: center;
 }

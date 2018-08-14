@@ -19,19 +19,19 @@ export const tan = () => {
 };
 
 export const arcsin = () => {
-  const prefix = <span>Sin<sup>-1</sup>(</span>;
+  const prefix = <span className='arcsin'>Sin<sup>-1</sup>(</span>;
   const suffix = <span>)</span>;
   return [prefix, suffix];
 };
 
 export const arccos = () => {
-  const prefix = <span>Cos<sup>-1</sup>(</span>;
+  const prefix = <span className='arccos'>Cos<sup>-1</sup>(</span>;
   const suffix = <span>)</span>;
   return [prefix, suffix];
 };
 
 export const arctan = () => {
-  const prefix = <span>Tan<sup>-1</sup>(</span>;
+  const prefix = <span className='arctan'>Tan<sup>-1</sup>(</span>;
   const suffix = <span>)</span>;
   return [prefix, suffix];
 };
@@ -52,6 +52,11 @@ export const integral = () => {
   return [prefix, suffix];
 };
 
+export const zeroes = () => {
+  const prefix = <span>0 intercepts of</span>;
+  return [prefix, null];
+};
+
 export const abs = () => {
   const prefix = <span>Abs(</span>;
   const suffix = <span>)</span>;
@@ -59,7 +64,7 @@ export const abs = () => {
 };
 
 export const tangent = (xValue) => {
-  const prefix = <span>Find Tangent</span>;
+  const prefix = <span>Tangent of</span>;
   const suffix = <span>where x={xValue}</span>;
   return [prefix, suffix];
 };

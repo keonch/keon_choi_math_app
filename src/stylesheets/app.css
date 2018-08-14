@@ -1,21 +1,53 @@
 .app {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 50px;
 }
 
-.operation-dashboard {
-  display: grid;
-  grid-template: repeat(4, auto) / repeat(4, auto);
-  grid-auto-flow: row dense;
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
+.input-field {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 20px;
+  position: relative;
 }
 
-.api-dashboard {
-  display: grid;
-  grid-template: repeat(5, auto) / repeat(3, auto);
-  grid-auto-flow: row dense;
-  font-size: 30px;
-  font-weight: bold;
+.input-field button {
   text-align: center;
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin-left: 20px;
+  padding: 10px;
+  align-self: center;
+  position: absolute;
+  left: 400px;
+}
+
+.input-field button:hover {
+  background-color: #dbdbdb;
+}
+
+.app > button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #cdf0e8;
+  margin-bottom: 20px;
+}
+
+.app > button:hover {
+  background-color: #b8d8d0;
+}
+
+.loading {
+  animation-name: spin;
+  animation-duration: .3s;
+  animation-iteration-count: infinite;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
 }

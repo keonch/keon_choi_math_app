@@ -1,0 +1,53 @@
+.dashboards {
+  display: flex;
+  flex-flow: row;
+  margin-bottom: 15px;
+}
+
+.operation-dashboard {
+  display: grid;
+  grid-template: repeat(4, auto) / repeat(4, auto);
+  grid-auto-flow: row dense;
+  font-size: 23px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.api-dashboard {
+  display: grid;
+  grid-template: repeat(5, auto) / repeat(3, auto);
+  grid-auto-flow: row dense;
+  font-size: 15px;
+}
+
+.operation-dashboard button {
+  background-color: lightgrey;
+  width: 50px;
+  height: 50px;
+}
+
+.operation-dashboard button:hover {
+  cursor: pointer;
+  opacity: .65;
+}
+
+.operation-dashboard .num {
+  background-color: #e9e9e9;
+}
+
+.operation-dashboard > .exp {
+  background-color: orange;
+}
+
+.api-dashboard button {
+  padding: 0 10px;
+  background-color: #cde7f0;
+}
+
+.api-dashboard button:hover {
+  background-color: #deeff5;
+}
+
+.api-dashboard .selected {
+  background-color: #add8e6;
+}
