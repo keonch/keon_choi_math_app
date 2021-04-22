@@ -121,8 +121,8 @@ export default class App extends Component {
     if (this.state.exp) {
       const ch = this.state.expression[this.state.expression.length - 1];
       expression = ch === '[' ?
-      this.state.expression.slice(0, -2) :
-      this.state.expression.concat(']');
+        this.state.expression.slice(0, -2) :
+        this.state.expression.concat(']');
     } else {
       expression = this.state.expression.concat('^[');
     }
@@ -168,18 +168,18 @@ export default class App extends Component {
           break;
         case 'π':
           prev_ch === 'x' || prev_ch === 'π' ?
-          apiEndpointExpression += '*pi' :
-          apiEndpointExpression += 'pi';
+            apiEndpointExpression += '*pi' :
+            apiEndpointExpression += 'pi';
           break;
         case '(':
           prev_ch === 'x' || prev_ch === 'π' ?
-          apiEndpointExpression += `*(` :
-          apiEndpointExpression += '(';
+            apiEndpointExpression += `*(` :
+            apiEndpointExpression += '(';
           break;
         case 'x':
           prev_ch === 'x' || prev_ch === 'π' ?
-          apiEndpointExpression += `*x` :
-          apiEndpointExpression += 'x';
+            apiEndpointExpression += `*x` :
+            apiEndpointExpression += 'x';
           break;
         case '[':
           apiEndpointExpression += '(';
@@ -190,8 +190,8 @@ export default class App extends Component {
         default:
           if (!isNaN(ch)) {
             prev_ch === 'x' || prev_ch === 'π' ?
-            apiEndpointExpression += `*${ch}` :
-            apiEndpointExpression += ch;
+              apiEndpointExpression += `*${ch}` :
+              apiEndpointExpression += ch;
           } else {
             apiEndpointExpression += ch;
           }
@@ -211,7 +211,7 @@ export default class App extends Component {
       apiParams = `${this.state.base}|`;
     }
 
-    const url = `https://newton.now.sh/${this.state.api}/${apiParams}${apiEndpointExpression}`;
+    const url = `https://newton.now.sh/api/v2/${this.state.api}/${apiParams}${apiEndpointExpression}`;
     this.setState({
       loading: true,
       apiUrl: url
@@ -240,7 +240,7 @@ export default class App extends Component {
         <div className='input-field'>
           <div className={`display`}>
             {this.state.prefix}
-            <Expression expression={this.state.expression}/>
+            <Expression expression={this.state.expression} />
             {this.state.suffix}
           </div>
           <button onClick={this.deleteExpression}>Del</button>
@@ -250,7 +250,7 @@ export default class App extends Component {
           <OperationDashboard
             toggleExponent={this.toggleExponent}
             exp={this.state.exp}
-            update={this.handleExpressionInput}/>
+            update={this.handleExpressionInput} />
           <APIDashboard
             selectedApi={this.state.api}
             xValue={this.state.xValue}
@@ -258,7 +258,7 @@ export default class App extends Component {
             end={this.state.end}
             base={this.state.base}
             update={this.updateApi}
-            updateApiParams={this.updateApiParams}/>
+            updateApiParams={this.updateApiParams} />
         </div>
 
         <button onClick={this.handleSubmit}>Compute</button>
@@ -266,8 +266,8 @@ export default class App extends Component {
         <div className='result display'>
           {
             this.state.loading ?
-            <div className='loading'>π</div> :
-            this.state.result
+              <div className='loading'>π</div> :
+              this.state.result
           }
         </div>
 
